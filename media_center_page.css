@@ -1,0 +1,43 @@
+@media (min-width: 400px ) and (max-width: 900px) {
+body {
+   display: flex;
+}
+
+#conatiner {
+
+   width: 900px;
+   height: 900px;
+}
+
+header {
+   
+   
+   display: flex;
+   justify-content: center;
+   margin: auto;
+   position: absolute;
+   width: 375px;
+   height: 20px;
+}
+
+
+
+ul {
+   margin: auto;
+}
+
+button {
+   width: 375px;
+   height: 40px;
+   background-color: darkgreen;
+   color: wheat;
+   border: none;
+}
+
+button:hover {
+   cursor: pointer;
+   background-color: rgb(0, 100, 68);
+   color: white;
+}
+
+}
