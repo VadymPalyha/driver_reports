@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="filling_AdBlue.js" defer></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+   <link rel="stylesheet" href="filling_AdBlue.css">
+   <title>Driver's report AdBlue</title>
+</head>
+<body>
+   
+   <div id="report">
+  
+      <div id="infoDrive">
+         
+         <span class="name">
+            
+            <label for="name">Imię i Nazwisko:</label>
+            <input id="name" type="text" >
+         
+         </span> 
+         
+         <span class="carReg">     
+            
+            <label for="carReg">Nr. Rej: </label>
+            <input id="carReg" type="text" >
+         
+         </span>   
+      
+      </div>
+
+      <div id="timeJob">
+         
+        
+         <span class="dateStart">
+            
+            <label for="dateStart">Data wyjazdu:</label>
+            <input  id="dateStart" type="date" >
+
+            
+            <label for="timeStart">Godzina:</label>
+            <input id="timeStart" type="time">
+         
+        
+         </span>
+
+         <span class="dateFinish">
+            
+            <label for="dateFinish">Data przyjazdu:</label>
+            <input id="dateFinish" type="date">
+
+            
+            <label for="timeFinish">Godzina:</label>
+            <input id="timeFinish" type="time">
+
+         </span>
+         
+      </div>
+
+      <div id="table">
+
+        <h2> Rozliczenie tankowań AdBlue</h2>
+
+        <table id="tankTable-ab" border="1" cellpadding="5" cellspacing="0">
+
+                     <thead>
+            
+                        <th>Lp.</th>
+                        <th>ilość litrów</th>
+                        <th>wskażnik licznika przy <br> tank.</th>
+                        <th>wartość paliwa w <br> euro</th>
+                        <th>wartość paliwa w <br> złotych</th>
+                        <th>inna waluta</th>
+                        <th>platność <br> gotówką <br> wpisz - G</th>
+         
+                     </thead>
+
+               <tbody>
+
+                         <tr>
+         
+                              <th>1</th>
+         
+                              <td><input id="liters-1-ab" type="number" style="border: none;"></td>
+                              <td><input id="odometer-1-ab" type="number" style="border: none;"></td>
+                              <td><input id="fuelCostEUR1-ab" type="number" style="border: none;" ></td>
+                              <td><input id="fuelCostPLN1-ab" type="number" style="border: none;"></td>
+         
+                              <td><input id="currency-1" type="number" style="border: none;"> 
+         
+                                 <select id="selectCurrency-1-ab">
+
+                                   <option value=""></option>
+                                   <option value="cz">cz</option>
+                                   <option value="ro">ro</option>
+         
+                                 </select>
+         
+                             </td>
+        
+                              <td><input id="" type="number" style="border: none;"></td>
+      
+                           </tr>
+      
+               
+                           <tr>
+         
+                              <th>2</th>
+         
+                             <td><input id="liters-2-ab" type="number" style="border: none;"></td>
+                             <td><input id="odometer-2-ab" type="number" style="border: none;"></td>
+                             <td><input id="fuelCostEUR2-ab" type="number" style="border: none;"></td>
+                                         <td><input id="fuelCostPLN2-ab" type="number" style="border: none;"></td>
+         
+                             <td><input id="currency-2" type="number" style="border: none;">
+            
+                                <select id="selectCurrency-2">
+               
+                                  <option  value=""></option>
+                                  <option  value="cz">cz</option>
+                                  <option  value="ro">ro</option>
+         
+                                 </select>
+         
+                              </td>
+         
+                              <td><input id="" type="number" style="border: none;"></td>
+      
+                           </tr>
+      
+      
+      
+                           <tr>
+         
+                             <th>3</th>
+         
+                             <td><input id="liters-3-ab" type="number" style="border: none;"></td>
+                             <td><input id="odometer-3-ab" type="number" style="border: none;"></td>
+                             <td><input id="fuelCostEUR3-ab" type="number" style="border: none;"></td>
+                             <td><input id="fuelCostPLN3-ab" type="number" style="border: none;"></td>
+         
+                             <td><input id="currency-3" type="number" style="border: none;">
+            
+                                <select id="selectCurrency-3">
+               
+                                   <option value=""></option>
+                                   <option value="cz">cz</option>
+                                   <option value="ro">ro</option>
+         
+                                 </select>
+         
+                             </td>
+         
+                            <td><input id="" type="number" style="border: none;"></td>
+      
+                           </tr>
+     
+                  <tr>
+         
+                    <th>4</th>
+         
+                    <td><input id="liters-4-ab" type="number" style="border: none;"></td>
+                     <td><input id="odometer-4-ab" type="number" style="border: none;"></td>
+                     <td><input id="fuelCostEUR4-ab" type="number" style="border: none;"></td>
+                     <td><input id="fuelCostPLN4-ab" type="number" style="border: none;"></td>
+         
+                   <td><input id="currency-4" type="number" style="border: none;">
+            
+                       <select id="selectCurrency-4">
+               
+                          <option value=""></option>
+                          <option value="cz">cz</option>
+                          <option value="ro">ro</option>
+         
+                       </select>
+         
+                    </td>
+         
+                    <td><input id="" type="number" style="border: none;"></td>
+      
+                  </tr>
+      
+                  <tr>
+         
+                    <th>5</th>
+         
+                    <td><input id="liters-5-ab" type="number" style="border: none;"></td>
+                    <td><input id="odometer-5-ab" type="number" style="border: none;"></td>
+                    <td><input id="fuelCostEUR5-ab" type="number" style="border: none;"></td>
+                    <td><input id="fuelCostPLN5-ab" type="number" style="border: none;"></td>
+         
+                    <td><input id="currency-5" type="number" style="border: none;">
+            
+                       <select id="selectCurrency-5">
+               
+                           <option value=""></option>
+                          <option value="cz">cz</option>
+                          <option value="ro">ro</option>
+         
+                       </select>
+         
+                    </td>
+         
+                    <td><input id="" type="number" style="border: none;"></td>
+      
+                  </tr>
+      
+                  <tr>
+         
+                    <th>6</th>
+         
+                    <td><input id="liters-6-ab" type="number" style="border: none;"></td>
+                    <td><input id="odometer-6-ab" type="number" style="border: none;"></td>
+                    <td><input id="fuelCostEUR6-ab" type="number" style="border: none;"></td>
+                    <td><input id="fuelCostPLN6-ab" type="number" style="border: none;"></td>
+         
+                     <td><input id="currency-6" type="number" style="border: none;">
+            
+                       <select id="selectCurrency-6">
+               
+                          <option value=""></option>
+                          <option value="cz">cz</option>
+                          <option value="ro">ro</option>
+                          <option value="chf">chf</option>
+         
+                      </select>
+         
+                     </td>
+         
+                     <td><input id="" type="number" style="border: none;"></td>
+      
+                  </tr>
+
+                  <tr>
+         
+                    <th>7</th>
+         
+                    <td><input id="liters-7-ab" type="number" style="border: none;"></td>
+                    <td><input id="odometer-7-ab" type="number" style="border: none;"></td>
+                    <td><input id="fuelCostEUR7-ab" type="number" style="border: none;"></td>
+                    <td><input id="fuelCostPLN7-ab" type="number" style="border: none;"></td>
+         
+                     <td><input id="currency-7" type="number" style="border: none;">
+            
+                       <select id="selectCurrency-7">
+               
+                          <option value=""></option>
+                          <option value="cz">cz</option>
+                          <option value="ro">ro</option>
+         
+                      </select>
+         
+                     </td>
+         
+                     <td><input id="" type="number" style="border: none;"></td>
+      
+                  </tr>
+      
+                  <tr>
+                    <th>8</th>
+         
+                     <td><input id="liters-8-ab" type="number" style="border: none;"></td>
+                     <td><input id="odometer-8-ab" type="number" style="border: none;"></td>
+                     <td><input id="fuelCostEUR8-ab" type="number" style="border: none;"></td>
+                     <td><input id="fuelCostPLN8-ab" type="number" style="border: none;"></td>
+         
+                     <td><input id="currency-8" type="number" style="border: none;">
+            
+                        <select id="selectCurrency-8">
+               
+                          <option value=""></option>
+                          <option value="cz">cz</option>
+                          <option value="ro">ro</option>
+         
+                       </select>
+         
+                     </td>
+         
+                     <td><input id="" type="number" style="border: none;"></td>
+      
+                  </tr>
+      
+                  <tr>
+                    <th>9</th>
+         
+                     <td><input id="liters-9-ab" type="number" style="border: none;"></td>
+                     <td><input id="odometer-9-ab" type="number" style="border: none;"></td>
+                     <td><input id="fuelCostEUR9-ab" type="number" style="border: none;"></td>
+                     <td><input id="fuelCostPLN9-ab" type="number" style="border: none;"></td>
+         
+                     <td><input id="currency-9" type="number" style="border: none;">
+            
+                      <select id="selectCurrency-9">
+               
+                         <option value=""></option>
+                         <option value="cz">cz</option>
+                         <option value="ro">ro</option>
+         
+                      </select>
+         
+                     </td>
+         
+                     <td><input id="" type="number" style="border: none;"></td>
+      
+                  </tr>
+      
+                  <tr>
+         
+                     <th>10</th>
+         
+                     <td><input id="liters-10-ab" type="number" style="border: none;"></td>
+                     <td><input id="odometer-10-ab" type="number" style="border: none;"></td>
+                     <td><input id="fuelCostEUR10-ab" type="number" style="border: none;"></td>
+                     <td><input id="fuelCostPLN10-ab" type="number" style="border: none;"></td>
+         
+                     <td><input id="currency-10" type="number" style="border: none;">
+            
+                      <select id="selectCurrency-10">
+               
+                          <option value=""></option>
+                          <option value="cz">cz</option>
+                          <option value="ro">ro</option>
+         
+                       </select>
+         
+                     </td>
+         
+                     <td><input id="" type="number" style="border: none;"></td>
+      
+                  </tr>
+
+               </tbody>
+
+        </table>
+
+      </div>
+
+   </div>
+   <button onclick="downloadPDF()">Pobrać PDF</button>
+   <button onclick="clearFormFields()">Wyczyścić</button>
+
+
+</body>
+</html>

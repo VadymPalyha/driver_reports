@@ -1,0 +1,66 @@
+@media (min-width: 300px ) and (max-width: 900px) {
+  #repor {
+      display: flex;
+      
+   }
+
+  table {
+   
+   width: 670px;
+   
+  }
+   thead {
+      
+      
+      font-size: 12px;
+   }
+
+   
+
+  
+   td {
+      padding: 0;
+   width: 102px;
+   
+}
+   
+   input[type="number"]::-webkit-outer-spin-button,
+   input[type="number"]::-webkit-inner-spin-button{
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+   
+
+   input {
+   padding: 0px;
+   width: 100px;
+   height: 28px;
+   font-size: 16px;
+}
+
+   input[id^="currency"] {
+      
+   width: 47px;
+   border: none;
+   padding: 0;
+   
+}
+
+   select {
+      
+   height: 28px;
+   width: 50px;
+   border: none;
+   box-shadow: none;
+   
+}
+
+
+
+
+   select, option {
+      font-size: 16px;
+   }
+
+}
