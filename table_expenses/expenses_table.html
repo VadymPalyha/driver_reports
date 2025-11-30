@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="epenses_table.css">
+   <link rel="stylesheet" href="media_expenses_table.css">
+   
+
+   <script src="expenses_table.js" defer></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+   <title>Report's Expenses</title>
+</head>
+<body>
+   <div id="reportCash">
+      <h2>Wydatki</h2>
+
+      <table id="expenses" border="1" cellpadding="5" cellspacing="0">
+
+         <thead>
+            
+            <th>Lp.</th>
+            <th>Nazwa jakie koszty</th>
+            <th>wartosć eouro</th>
+            <th>wortość zł.</th>
+            <th>jeśli płatne <br> gotówką <br> wybierz - G</th>
+         
+         </thead>
+
+         <tbody>
+
+            <tr>
+
+               <th>1</th>
+
+                  <td>
+                                 <select id="nameExpenses-1" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                   
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  </td>
+                  
+                  <td><input id="costEuroExpenses-1" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyExpenses-1" type="number" style="border: none;"></td>
+                  
+                  <td>
+
+                     <select id="cash-1" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>2</th>
+
+                  <td>
+                                 <select id="nameExpenses-2" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                   
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="legalization">Legalizacja gaśnic</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="wash-car">Myjnia</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  </td>
+                  
+                  <td><input id="costEuroExpenses-2" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyEpenses-2" type="number" style="border: none;"></td>
+                  
+                  <td>
+                     
+                     <select id="cash-2" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+                  
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>3</th>
+
+                  <td>
+                                 <select id="nameExpenses-3" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                       
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="liquid">Płyn chlodniczy</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="wash-car">Myjnia</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  </td>
+                     
+                     <td><input id="costEuroExpenses-3" type="number" style="border: none;"></td>
+                     <td><input id="costZlotyExpenses-3" type="number" style="border: none;"></td>
+                  
+                  <td>
+
+                     <select id="cash-3" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>4</th>
+
+                  <td>
+                                 <select id="nameExpenses-4" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                    
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="bulb">Żarówki</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  </td>
+               
+                  <td><input id="costEuroExpenses-4" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyExpenses-4" type="number" style="border: none;"></td>
+               
+                  <td>
+
+                     <select id="cash-4" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+
+               
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>5</th>
+
+                  <td>
+                                 
+                                 <select id="nameExpenses-5" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                    
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  </td>
+               
+                  <td><input id="costEuroExpenses-5" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyEpenses-5" type="number" style="border: none;"></td>
+               
+                  <td>
+
+                     <select id="cash-5" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>6</th>
+
+                  <td>
+                                 
+                              <select id="nameExpenses-6" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                   
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  
+                  </td>
+                  
+                  <td><input id="costEuroExpenses-6" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyEpenses-6" type="number" style="border: none;"></td>
+               
+                  <td>
+
+                     <select id="cash-6" style="border: none;">
+                     
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>7</th>
+
+                  <td>
+                                 <select id="nameExpenses-7" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  
+                  </td>
+               
+                  <td><input id="costEuroExpenses-7" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyEpenses-7" type="number" style="border: none;"></td>
+               
+                  <td>
+
+                     <select id="cash-7" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>8</th>
+
+                  <td>
+                                 <select id="nameExpenses-8" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                   
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  </td>
+               
+                  <td><input id="costEuroExpenses-8" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyEpenses-8" type="number" style="border: none;"></td>
+               
+                  <td>
+
+                     <select id="cash-8" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>9</th>
+
+                  <td>
+                                 <select id="nameExpenses-9" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                   
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  </td>
+               
+                  <td><input id="costEuroExpenses-9" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyEpenses-9" type="number" style="border: none;"></td>
+               
+                  <td>
+
+                     <select id="cash-9" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+
+                  </td>
+
+            </tr>
+            
+            <tr>
+
+               <th>10</th>
+
+                  <td>
+                                 <select id="nameExpenses-10" style="border: none;">
+                                  <option value="" disabled selected hidden>Wybierz z listy</option>
+                                    <optgroup label="Oplata okresowa (winieta)">
+
+                                       <option value="winetAt">Winieta AT</option>
+                                       <option value="WinetCz ">Winieta CZ</option>
+                                       <option value="WinetSk">Winieta SK</option>
+                                       <option value="WinetH">Winieta H</option>
+                                       <option value="WinetRo">Winieta RO</option>
+                                       <option value="WinetBg">Winieta BG</option>
+                                       <option value="WinetSlo">Winieta SLO</option>
+                                       <option value="WinetLv">Winieta LV</option>
+                                       <option value="winetLt">Winieta LT</option>
+                                       <option value="WinetCh">Winieta CH</option>
+
+                                    </optgroup>
+                                 
+                                   
+                                   <optgroup label="Opłata za prezjazd">
+                                   
+                                     <option value="tollHighwayAt">Autostrada AT</option>
+                                     <option value="tollHighwayP">Autostrda P</option>
+                                     <option value="tollHighwayPl">Autostrada PL</option>
+                                     <option value="tollHighwayIt">Autostrada IT</option>
+                                     <option value="tollHighwayFr">Autostrada FR</option>
+                                     <option value="tollHighwayGr">Autostrada GR</option>
+                                   
+                                    </optgroup>
+                                   
+                                   <optgroup label="Inny wydatki">
+                                   
+                                       <option value="post">Poczta</option>
+                                       <option value="oil">Olej</option>
+                                       <option value="fine">Mandat</option>
+                                       <option value="service">Warsztat</option>
+                                       <option value="other">Inny koszty</option>
+
+                                   </optgroup>
+                                  
+                                 </select>
+                  </td>
+               
+                  <td><input id="costEuroExpenses-10" type="number" style="border: none;"></td>
+                  <td><input id="costZlotyEpenses-10" type="number" style="border: none;"></td>
+               
+                  <td>
+                     
+                     <select id="cash-10" style="border: none;">
+                        
+                        <option value=""></option>
+                        <option value="g">G</option>
+                     
+                     </select>
+                  
+                  </td>
+
+            </tr>
+
+         </tbody>
+
+      </table>
+
+      
+
+   </div>
+
+   <button onclick="downloadPDF()">Pobrać PDF</button>
+   <button onclick="clearFormExpenses()">Wyczyścić</button>
+</body>
+</html>

@@ -1,0 +1,34 @@
+th {
+background-color: rgb(0, 0, 255);
+color: white;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+input:hover {
+   outline: none;
+   border: none;
+   box-shadow: none;
+}
+
+input {
+   padding: 0px;
+   width: 140px;
+   height: 28px;
+   font-size: 20px;
+}
+
+select {
+  
+   border: none;
+   box-shadow: none;
+   
+}
+
+select, option {
+   font-size: 16px;
+}
