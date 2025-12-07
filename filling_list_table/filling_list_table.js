@@ -132,7 +132,13 @@ if (input.type === "time" && value) {
   pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
 
  heightLeft -= pageHeight;
-      
+
+       while (heightLeft > 0) {
+      position = -(imgHeight - heightLeft) + 10;
+      pdf.addPage();
+      pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+  }      
   pdf.save("Rozliczenie tankowań Diesel.pdf");
 
   document.body.removeChild(container);
