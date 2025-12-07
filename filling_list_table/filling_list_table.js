@@ -115,11 +115,28 @@ if (input.type === "time" && value) {
   const imgData = canvas.toDataURL("image/png");
 
   const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF();
+  const pdf = new jsPDF("p", "pt", "a4";
+  
   const pageWidth = pdf.internal.pageSize.getWidth();
+  const pageHeight = pdf.internal.pageSize.getHeight();
+  
   const imgWidth = pageWidth - 20;
-  const imgHeight = canvas.height * imgWidth / canvas.width;
+  const imgHeight = canvas.height * (imgWidth / canvas.width);
+
+  let heightLeft = imgHeight;
+  let position = 10;
+ 
   pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+
+ heightLeft -= pageHeight;
+
+  // остальные страницы
+  while (heightLeft > 0) {
+      position = -(imgHeight - heightLeft) + 10;
+      pdf.addPage();
+      pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+ 
   pdf.save("Rozliczenie tankowań Diesel.pdf");
 
   document.body.removeChild(container);
