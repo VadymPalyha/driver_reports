@@ -121,10 +121,13 @@ if (input.type === "time" && value) {
       const pageHeight = pdf.internal.pageSize.getHeight();
       
   const imgWidth = pageWidth - 20;
-  const imgHeight = canvas.height * imgWidth / canvas.width;
-  
+  const imgHeight = canvas.height * (imgWidth / canvas.width);
+
       
-  pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+   let heightLeft = imgHeight;
+  let position = 10;
+      
+  pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
   pdf.save("Rozliczenie tankowań Diesel.pdf");
 
   document.body.removeChild(container);
