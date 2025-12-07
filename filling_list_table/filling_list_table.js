@@ -115,8 +115,9 @@ if (input.type === "time" && value) {
   const imgData = canvas.toDataURL("image/png");
 
   const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF();
-  const pageWidth = pdf.internal.pageSize.getWidth();
+  const pdf = new jsPDF("p", "pt", "a4");
+  
+      const pageWidth = pdf.internal.pageSize.getWidth();
   const imgWidth = pageWidth - 20;
   const imgHeight = canvas.height * imgWidth / canvas.width;
   pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
