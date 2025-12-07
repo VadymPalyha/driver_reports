@@ -110,29 +110,16 @@ if (input.type === "time" && value) {
   });
 
   // Генерация PDF
-  await new Promise(resolve => setTimeout(resolve, 100));
+ await new Promise(resolve => setTimeout(resolve, 100));
   const canvas = await html2canvas(tempTable, { scale: 2 });
   const imgData = canvas.toDataURL("image/png");
 
   const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF("p", "pt", "a4";
-  
+  const pdf = new jsPDF();
   const pageWidth = pdf.internal.pageSize.getWidth();
-  const pageHeight = pdf.internal.pageSize.getHeight();
-  
   const imgWidth = pageWidth - 20;
-  const imgHeight = canvas.height * (imgWidth / canvas.width);
-
-  let heightLeft = imgHeight;
-  let position = 10;
- 
+  const imgHeight = canvas.height * imgWidth / canvas.width;
   pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-
- heightLeft -= pageHeight;
-
-  // остальные страницы
-  
- 
   pdf.save("Rozliczenie tankowań Diesel.pdf");
 
   document.body.removeChild(container);
